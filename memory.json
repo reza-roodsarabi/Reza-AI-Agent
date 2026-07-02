@@ -1,0 +1,47 @@
+{
+    "name": "Reza",
+    "skills": [
+        "python",
+        "ai",
+        "flask"
+    ],
+    "history": [
+        {
+            "date": "2026-06-27",
+            "projects": [
+                "AI chatbot",
+                "Python web scraping"
+            ]
+        },
+        {
+            "date": "2026-06-27",
+            "projects": []
+        },
+        {
+            "date": "2026-06-27",
+            "projects": []
+        },
+        {
+            "date": "2026-06-27",
+            "projects": []
+        },
+        {
+            "date": "2026-06-27",
+            "projects": [
+                "Flask Website"
+            ]
+        },
+        {
+            "date": "2026-06-28",
+            "projects": []
+        },
+        {
+            "date": "2026-06-28",
+            "projects": []
+        },
+        {
+            "date": "2026-06-28",
+            "projects": []
+        }
+    ]
+}

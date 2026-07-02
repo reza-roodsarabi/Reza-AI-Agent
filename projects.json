@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Python web scraping",
+        "budget": "$50",
+        "tags": [
+            "python"
+        ]
+    },
+    {
+        "title": "AI chatbot",
+        "budget": "$200",
+        "tags": [
+            "ai",
+            "python"
+        ]
+    },
+    {
+        "title": "Logo design",
+        "budget": "$30",
+        "tags": [
+            "design"
+        ]
+    },
+    {
+        "title": "Django API",
+        "budget": "$500",
+        "tags": [
+            "python",
+            "django"
+        ]
+    }
+]
