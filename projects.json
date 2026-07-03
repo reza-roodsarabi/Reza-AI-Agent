@@ -4,7 +4,8 @@
         "budget": "$50",
         "tags": [
             "python"
-        ]
+        ],
+        "favorite": false
     },
     {
         "title": "AI chatbot",
@@ -12,14 +13,16 @@
         "tags": [
             "ai",
             "python"
-        ]
+        ],
+        "favorite": false
     },
     {
         "title": "Logo design",
         "budget": "$30",
         "tags": [
             "design"
-        ]
+        ],
+        "favorite": false
     },
     {
         "title": "Django API",
@@ -27,6 +30,7 @@
         "tags": [
             "python",
             "django"
-        ]
+        ],
+        "favorite": false
     }
 ]

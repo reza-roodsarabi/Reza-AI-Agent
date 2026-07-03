@@ -119,9 +119,22 @@ def import_from_csv():
                 "tags": [
                     t.strip().lower()
                     for t in row["Tags"].split(",")
-                ]
+                ],
+                "favorite": False
             })
 
     save_projects(projects)
 
     return projects
+
+def toggle_favorite(projects, index):
+
+    if 0 <= index < len(projects):
+
+        projects[index]["favorite"] = not projects[index]["favorite"]
+
+        save_projects(projects)
+
+        return projects[index]
+
+    return None

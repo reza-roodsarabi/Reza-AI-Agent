@@ -13,6 +13,7 @@ from project_manager import (
     project_statistics,
     export_to_csv,
     import_from_csv,
+    toggle_favorite,
 )
 # ------------------ Load Memory ------------------
 
@@ -96,6 +97,7 @@ def report():
         "projects": [p["title"] for p in results]
     })
     # ------------------ Menu ------------------
+
 print("======== AI Agent ========")
 print("1. Show projects")
 print("2. Update skills")
@@ -174,7 +176,7 @@ elif choice == "6":
     print("\nProjects sorted by budget:\n")
 
     for p in sorted_projects:
-        print(f"- {p['title']} ({p['budget']})")  
+        print(f"- {p['title']} ({p['budget']})")
 elif choice == "7":
 
     stats = project_statistics(projects)
@@ -184,12 +186,12 @@ elif choice == "7":
     print(f"Total projects : {stats['total']}")
     print(f"Highest budget : ${stats['highest']}")
     print(f"Lowest budget  : ${stats['lowest']}")
-    print(f"Average budget : ${stats['average']:.2f}")
+    print(f"Average budget : ${stats['average']:.2f}")  
 elif choice == "8":
 
     export_to_csv(projects)
 
-    print("\n✅ Projects exported to projects.csv") 
+    print("\n✅ Projects exported to projects.csv")   
 elif choice == "9":
 
     print("\nProjects:")
@@ -214,12 +216,13 @@ elif choice == "9":
     if updated:
         print("\n✅ Project updated successfully!")
     else:
-        print("\n❌ Invalid project number.")   
+        print("\n❌ Invalid project number.")
 elif choice == "10":
 
     projects = import_from_csv()
 
-    print("\n✅ Projects imported from CSV successfully!")         
+    print("\n✅ Projects imported from CSV successfully!")        
 elif choice == "11":
 
     print("Goodbye!")  
+save_memory(memory)
