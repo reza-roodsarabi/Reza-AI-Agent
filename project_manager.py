@@ -138,3 +138,34 @@ def toggle_favorite(projects, index):
         return projects[index]
 
     return None
+def show_favorites(projects):
+
+    favorites = []
+
+    for p in projects:
+
+        if p["favorite"]:
+            favorites.append(p)
+
+    return favorites
+def favorite_count(projects):
+
+    count = 0
+
+    for p in projects:
+
+        if p["favorite"]:
+            count += 1
+
+    return count
+def dashboard(projects):
+
+    stats = project_statistics(projects)
+
+    return {
+        "total_projects": len(projects),
+        "favorite_projects": favorite_count(projects),
+        "highest_budget": stats["highest"],
+        "lowest_budget": stats["lowest"],
+        "average_budget": stats["average"]
+    }

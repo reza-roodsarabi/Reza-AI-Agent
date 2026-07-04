@@ -14,6 +14,9 @@ from project_manager import (
     export_to_csv,
     import_from_csv,
     toggle_favorite,
+    show_favorites,
+    favorite_count,
+    dashboard,
 )
 # ------------------ Load Memory ------------------
 
@@ -121,7 +124,9 @@ print("8. Export to CSV")
 print("9. Edit project")
 print("10. Import from CSV")
 print("11. Toggle Favorite")
-print("12. Exit")
+print("12. Show Favorite Projects")
+print("13. Dashboard")
+print("14. Exit")
 
 choice = input("\nChoose: ")
 
@@ -258,8 +263,40 @@ elif choice == "11":
 
     else:
 
-        print("\nInvalid project number.")      
+        print("\nInvalid project number.")     
 elif choice == "12":
+
+    favorites = show_favorites(projects)
+
+    if favorites:
+
+        print("\n⭐ Favorite Projects\n")
+
+        for p in favorites:
+
+            print(f"- {p['title']} ({p['budget']})")
+            print(f"\nTotal Favorites: {favorite_count(projects)}")
+
+    else:
+
+        print("\nNo favorite projects.")       
+elif choice == "13":
+
+    data = dashboard(projects)
+
+    print("\n========== Dashboard ==========\n")
+
+    print(f"Total Projects    : {data['total_projects']}")
+    print(f"Favorite Projects : {data['favorite_projects']}")
+
+    print()
+
+    print(f"Highest Budget    : ${data['highest_budget']}")
+    print(f"Lowest Budget     : ${data['lowest_budget']}")
+    print(f"Average Budget    : ${data['average_budget']:.2f}")
+
+    print("\n===============================\n")         
+elif choice == "14":
 
     print("Goodbye!")  
 save_memory(memory)
