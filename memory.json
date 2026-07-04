@@ -7,41 +7,12 @@
     ],
     "history": [
         {
-            "date": "2026-06-27",
+            "date": "2026-07-04",
             "projects": [
                 "AI chatbot",
-                "Python web scraping"
+                "Python web scraping",
+                "Django API"
             ]
-        },
-        {
-            "date": "2026-06-27",
-            "projects": []
-        },
-        {
-            "date": "2026-06-27",
-            "projects": []
-        },
-        {
-            "date": "2026-06-27",
-            "projects": []
-        },
-        {
-            "date": "2026-06-27",
-            "projects": [
-                "Flask Website"
-            ]
-        },
-        {
-            "date": "2026-06-28",
-            "projects": []
-        },
-        {
-            "date": "2026-06-28",
-            "projects": []
-        },
-        {
-            "date": "2026-06-28",
-            "projects": []
         }
     ]
 }

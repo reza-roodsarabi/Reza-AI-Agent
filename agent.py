@@ -88,10 +88,21 @@ def report():
 
     if not results:
         print("All matching projects were already shown before.")
-    else:
-        for p in results:
-            print(f"- {p['title']} ({p['budget']}) -> {p['score']} match")
 
+    else:
+
+        for p in results:
+
+            original = next(
+                project for project in projects
+                if project["title"] == p["title"]
+            )
+
+            star = "⭐ " if original["favorite"] else ""
+
+            print(f"- {star}{p['title']} ({p['budget']}) -> {p['score']} match")
+
+   
     memory["history"].append({
         "date": today,
         "projects": [p["title"] for p in results]
@@ -109,7 +120,8 @@ print("7. Project statistics")
 print("8. Export to CSV")
 print("9. Edit project")
 print("10. Import from CSV")
-print("11. Exit")
+print("11. Toggle Favorite")
+print("12. Exit")
 
 choice = input("\nChoose: ")
 
@@ -221,8 +233,33 @@ elif choice == "10":
 
     projects = import_from_csv()
 
-    print("\n✅ Projects imported from CSV successfully!")        
+    print("\n✅ Projects imported from CSV successfully!")      
 elif choice == "11":
+
+    print("\nProjects:")
+
+    for i, p in enumerate(projects):
+
+        star = "⭐" if p["favorite"] else ""
+
+        print(f"{i+1}. {star} {p['title']}")
+
+    number = int(input("\nChoose project: "))
+
+    project = toggle_favorite(projects, number - 1)
+
+    if project:
+
+        if project["favorite"]:
+            print(f"\n⭐ '{project['title']}' added to favorites!")
+
+        else:
+            print(f"\n❌ '{project['title']}' removed from favorites!")
+
+    else:
+
+        print("\nInvalid project number.")      
+elif choice == "12":
 
     print("Goodbye!")  
 save_memory(memory)
