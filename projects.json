@@ -5,7 +5,7 @@
         "tags": [
             "python"
         ],
-        "favorite": false
+        "favorite": true
     },
     {
         "title": "AI chatbot",
@@ -22,7 +22,7 @@
         "tags": [
             "design"
         ],
-        "favorite": false
+        "favorite": true
     },
     {
         "title": "Django API",

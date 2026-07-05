@@ -18,6 +18,16 @@ from project_manager import (
     favorite_count,
     dashboard,
 )
+def get_number(message):
+
+    while True:
+
+        value = input(message)
+
+        if value.isdigit():
+            return int(value)
+
+        print("❌ Please enter a valid number.")
 # ------------------ Load Memory ------------------
 
 memory = load_memory()
@@ -128,7 +138,15 @@ print("12. Show Favorite Projects")
 print("13. Dashboard")
 print("14. Exit")
 
-choice = input("\nChoose: ")
+while True:
+
+    choice = input("\nChoose: ")
+
+    if choice.isdigit():
+
+        break
+
+    print("❌ Please enter a valid number.")
 
 if choice == "1":
     report()
@@ -164,7 +182,7 @@ elif choice == "4":
     for i, p in enumerate(projects):
         print(f"{i+1}. {p['title']}")
 
-    number = int(input("\nEnter project number to delete: "))
+    number = get_number("\nEnter project number to delete: ")
 
     deleted = delete_project(projects, number - 1)
 
@@ -216,7 +234,7 @@ elif choice == "9":
     for i, p in enumerate(projects):
         print(f"{i+1}. {p['title']}")
 
-    number = int(input("\nChoose project: "))
+    number = get_number("\nChoose project: ")
 
     title = input("New title: ")
     budget = input("New budget: ")
@@ -249,7 +267,7 @@ elif choice == "11":
 
         print(f"{i+1}. {star} {p['title']}")
 
-    number = int(input("\nChoose project: "))
+    number = get_number("\nChoose project: ")
 
     project = toggle_favorite(projects, number - 1)
 
