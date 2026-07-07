@@ -1,6 +1,7 @@
 import json
 from datetime import datetime
-
+from modules.report import report
+from modules.dashboard import dashboard
 from memory_manager import load_memory, save_memory
 from scoring import calculate_score
 from project_manager import (
@@ -91,35 +92,6 @@ def find_projects():
     return scored
 # ------------------ Report ------------------
 
-def report():
-
-    today = datetime.now().strftime("%Y-%m-%d")
-
-    print(f"\n📅 Report - {today}\n")
-
-    results = find_projects()
-
-    if not results:
-        print("All matching projects were already shown before.")
-
-    else:
-
-        for p in results:
-
-            original = next(
-                project for project in projects
-                if project["title"] == p["title"]
-            )
-
-            star = "⭐ " if original["favorite"] else ""
-
-            print(f"- {star}{p['title']} ({p['budget']}) -> {p['score']} match")
-
-   
-    memory["history"].append({
-        "date": today,
-        "projects": [p["title"] for p in results]
-    })
     # ------------------ Menu ------------------
 
 print("======== AI Agent ========")
@@ -149,8 +121,11 @@ while True:
     print("❌ Please enter a valid number.")
 
 if choice == "1":
-    report()
-
+    report(
+    find_projects(),
+    projects,
+    memory
+)
 elif choice == "2":
 
     skills_input = input("Enter your new skills: ")
@@ -161,11 +136,13 @@ elif choice == "2":
     ]
 
     skills_list = memory["skills"]
-
     print("\n✅ Skills updated!")
 
-    report()
-
+    report(
+        find_projects(),
+        projects,
+        memory
+)
 elif choice == "3":
 
     title = input("Project title: ")
